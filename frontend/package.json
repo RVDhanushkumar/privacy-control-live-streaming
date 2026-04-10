@@ -47,5 +47,8 @@
   },
   "devDependencies": {
     "cross-env": "^10.1.0"
+  },
+  "browser": {
+    "fs": false
   }
 }

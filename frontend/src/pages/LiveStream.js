@@ -66,7 +66,8 @@ function App() {
 
   const [modelsLoaded, setModelsLoaded] = useState(false);
   const [faceMatcher,  setFaceMatcher]  = useState(null);
-  const [status,       setStatus]       = useState("Loading models...");
+  // eslint-disable-next-line no-unused-vars
+  const [ status, setStatus]       = useState("Loading models...");
   const [isRegistered, setIsRegistered] = useState(false);
   const [isStreaming,  setIsStreaming]  = useState(false);
   const [isMuted,      setIsMuted]      = useState(false);
@@ -297,6 +298,7 @@ function App() {
     });
 
     return () => {
+      
       Object.keys(peersRef.current).forEach((id) => cleanupPeer(id));
       if (videoStreamRef.current) {
         videoStreamRef.current.getTracks().forEach((t) => t.stop());
@@ -355,6 +357,7 @@ function App() {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const registerFace = async () => {
     if (!modelsLoaded || isRegistered) return;
     const imageSrc = webcamRef.current.getScreenshot();
@@ -372,6 +375,7 @@ function App() {
     setStatus("Face registered");
   };
 
+  // eslint-disable-next-line no-unused-vars
   const removeFace = () => {
     localStorage.removeItem("registeredFace");
     setFaceMatcher(null);
