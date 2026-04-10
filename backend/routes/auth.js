@@ -59,8 +59,9 @@ router.post("/login", async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "1d" }
     );
-
-    res.json({ token });
+    
+    console.log("Login successful for:", user);
+    res.json({ token , user: { email: user.email, faceDescriptor: user.faceDescriptor } });
 
   } catch (err) {
     console.error("LOGIN ERROR:", err);

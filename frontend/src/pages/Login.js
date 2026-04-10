@@ -32,6 +32,7 @@ export default function Login() {
       });
 
       const data = await res.json();
+      console.log("Login response:", res, data);
 
       if (!res.ok) {
         setError(data.message || "Login failed");
@@ -42,7 +43,7 @@ export default function Login() {
       // Store JWT + user
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-
+      localStorage.setItem("registeredFace", data.user.faceDescriptor);
       navigate("/dashboard");
 
     } catch (err) {
