@@ -14,6 +14,9 @@ app.use(express.json());
 
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
+app.get('/', (req, res) => {
+  res.send("Welcome to the Privacy Stream Backend!");
+});
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected"))
