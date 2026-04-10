@@ -9,7 +9,13 @@ const Room = require("./models/Room");
 const socketAuth = require("./middleware/socketAuth");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://privacy-stream.vercel.app"
+  ],
+  methods: ["GET", "POST"]
+}));
 app.use(express.json());
 
 const authRoutes = require("./routes/auth");

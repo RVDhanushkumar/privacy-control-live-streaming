@@ -17,7 +17,7 @@ export default function Signup() {
   // Load face models
   useEffect(() => {
     const loadModels = async () => {
-      const MODEL_URL = "/models"; // place models in public/models
+      const MODEL_URL = "https://privacy-stream.vercel.app/models"; // place models in public/models
       await faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL);
       await faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL);
       await faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL);

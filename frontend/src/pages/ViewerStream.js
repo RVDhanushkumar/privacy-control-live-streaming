@@ -39,7 +39,7 @@ export default function ViewerStream() {
 
     socketRef.current = io("https://privacy-control-live-streaming-1.onrender.com", {
       auth: { token: localStorage.getItem("token") },
-      // IMPROVEMENT: Reconnection config for transient network drops
+      transports: ["websocket", "polling"],
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,

@@ -220,8 +220,9 @@ function App() {
 
   /* ---------------- Socket ---------------- */
   useEffect(() => {
-    socketRef.current = io("https://privacy-control-live-streaming-1.onrender.com/", {
+    socketRef.current = io("https://privacy-control-live-streaming-1.onrender.com", {
       auth: { token: localStorage.getItem("token") },
+      transports: ["websocket", "polling"],
       reconnection: true,
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
@@ -321,7 +322,7 @@ function App() {
   /* ---------------- Load models ---------------- */
   useEffect(() => {
     const loadModels = async () => {
-      const MODEL_URL = "/models";
+      const MODEL_URL = "https://privacy-stream.vercel.app/models";
       await Promise.all([
         faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL),
         faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
