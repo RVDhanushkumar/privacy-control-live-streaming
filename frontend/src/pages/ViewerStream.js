@@ -37,7 +37,7 @@ export default function ViewerStream() {
   useEffect(() => {
     if (!isUsernameSet) return;
 
-    socketRef.current = io("http://localhost:5000", {
+    socketRef.current = io("https://privacy-control-live-streaming-1.onrender.com", {
       auth: { token: localStorage.getItem("token") },
       // IMPROVEMENT: Reconnection config for transient network drops
       reconnection: true,

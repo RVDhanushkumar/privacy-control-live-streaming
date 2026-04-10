@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 import Peer from "simple-peer";
 
-const socket = io("http://localhost:6000", {
+const socket = io("https://privacy-control-live-streaming-1.onrender.com", {
   transports: ["websocket"],
 });
 
