@@ -41,7 +41,7 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     console.log("REGISTER HIT");
-  console.log(req.body);
+  console.log("req: ",req.body);
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
