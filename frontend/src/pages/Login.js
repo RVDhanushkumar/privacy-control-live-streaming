@@ -43,7 +43,7 @@ export default function Login() {
       // Store JWT + user
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-      localStorage.setItem("registeredFace", data.user.faceDescriptor);
+      localStorage.setItem("registeredFace", JSON.stringify(data.user.faceDescriptor));
       navigate("/dashboard");
 
     } catch (err) {
